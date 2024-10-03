@@ -21,7 +21,7 @@ export const DepositForBurnHandler = async (
   bind: any,
   secrets: ISecrets
 ) => {
-  const client = Instance.PostgresClient(bind);
+  const client = Instance.MongoClient(bind);
 
   const { event, transaction, block, log } = context;
   let {
@@ -49,7 +49,7 @@ export const DepositForBurnHandler = async (
       bridgeId: burnId,
     }),
     mintDB.load({
-      bridgeId: burnId.toLowerCase(),
+      bridgeId: burnId,
     }),
   ]);
 
@@ -76,6 +76,7 @@ export const DepositForBurnHandler = async (
   if (dstTx) {
     burntransaction.isCompleted = true;
     dstTx.messageSender = depositor.toString();
+    await mintDB.save(dstTx);
   }
 
   let feeamount = 0;
@@ -83,7 +84,6 @@ export const DepositForBurnHandler = async (
 
   await Promise.all([
     burntransactionDB.save(burntransaction),
-    mintDB.save(dstTx),
     new Stats(
       true,
       block.chain_id,

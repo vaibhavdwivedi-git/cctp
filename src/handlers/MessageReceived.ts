@@ -29,7 +29,7 @@ export const MessageReceivedHandler = async (
   bind: any,
   secrets: ISecrets
 ) => {
-  const client = Instance.PostgresClient(bind);
+  const client = Instance.MongoClient(bind);
 
   // Implement your event handler logic for MessageReceived here 163201_10_1
   const { event, transaction, block, log } = context;
@@ -106,7 +106,7 @@ export const MessageReceivedHandler = async (
     };
   }
 
-  if (attestation) {
+  if (!attestation) {
     attestation = {
       bridgeId: mintId,
       attestation: attestationdata.toString(),
@@ -118,6 +118,7 @@ export const MessageReceivedHandler = async (
   if (srcTx) {
     minttransaction.messageSender = srcTx.messageSender;
     srcTx.isCompleted = true;
+    await burnDB.save(srcTx);
   }
 
   let feeamount = 0;
@@ -126,7 +127,6 @@ export const MessageReceivedHandler = async (
   await Promise.all([
     minttransactionDB.save(minttransaction),
     attestationDB.save(attestation),
-    burnDB.save(srcTx),
     new Stats(
       true,
       block.chain_id,

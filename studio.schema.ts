@@ -1,6 +1,6 @@
 const burnTransactionsTable = {
   name: "burnTransactionsTable",
-  db: "postgres",
+  db: "mongodb",
   type: "managed",
   reorg: true,
   properties: {
@@ -21,7 +21,7 @@ const burnTransactionsTable = {
 
 const mintTransactionsTable = {
   name: "mintTransactionsTable",
-  db: "postgres",
+  db: "mongodb",
   type: "managed",
   reorg: true,
   properties: {
@@ -40,7 +40,7 @@ const mintTransactionsTable = {
 
 const attestationTable = {
   name: "attestationTable",
-  db: "postgres",
+  db: "mongodb",
   type: "managed",
   reorg: true,
   properties: {
@@ -53,7 +53,7 @@ const attestationTable = {
 
 const DomainsTable = {
   name: "DomainsTable",
-  db: "postgres",
+  db: "mongodb",
   type: "managed",
   reorg: true,
   properties: {
@@ -66,7 +66,7 @@ const DomainsTable = {
 
 const FeeInfo = {
   name: "FeeInfo",
-  db: "postgres",
+  db: "mongodb",
   type: "managed",
   reorg: true,
   properties: {
@@ -77,7 +77,7 @@ const FeeInfo = {
 
 const cctpDayDataDB = {
   name: "cctpDayDataDB",
-  db: "postgres",
+  db: "mongodb",
   type: "managed",
   reorg: true,
   properties: {
@@ -93,7 +93,7 @@ const cctpDayDataDB = {
 
 const cctpWeekDataDB = {
   name: "cctpWeekDataDB",
-  db: "postgres",
+  db: "mongodb",
   type: "managed",
   reorg: true,
   properties: {
@@ -109,7 +109,7 @@ const cctpWeekDataDB = {
 
 const cctpMonthDataDB = {
   name: "cctpMonthDataDB",
-  db: "postgres",
+  db: "mongodb",
   type: "managed",
   reorg: true,
   properties: {
@@ -125,7 +125,7 @@ const cctpMonthDataDB = {
 
 const cctpYearDataDB = {
   name: "cctpYearDataDB",
-  db: "postgres",
+  db: "mongodb",
   type: "managed",
   reorg: true,
   properties: {
@@ -141,7 +141,7 @@ const cctpYearDataDB = {
 
 const cctpAllTimeDB = {
   name: "cctpAllTimeDB",
-  db: "postgres",
+  db: "mongodb",
   type: "managed",
   reorg: true,
   properties: {

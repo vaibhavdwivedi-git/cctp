@@ -13,11 +13,11 @@ Path:
   docker: ./docker-compose.yml
 Environment:
   testing:
-    startBlock: 20813569
+    startBlock: 20813500
     network: Ethereum
     execution: parallel
-    rpc: https://eth.llamarpc.com
-    range: 10
+    rpc: https://rpc.ankr.com/eth
+    range: 120
   deployment:
     startBlock: 16730025
     network: Ethereum

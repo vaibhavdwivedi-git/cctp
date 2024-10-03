@@ -1,6 +1,6 @@
 export const burnTransactionsTable = {
   "name": "XXXX-XXXX-XXXX-XXXX-burnTransactionsTable",
-  "db": "postgres",
+  "db": "mongodb",
   "type": "managed",
   "properties": {
     "bridgeId": "string?",
@@ -36,7 +36,7 @@ export interface IburnTransactionsTable {
 
 export const mintTransactionsTable = {
   "name": "XXXX-XXXX-XXXX-XXXX-mintTransactionsTable",
-  "db": "postgres",
+  "db": "mongodb",
   "type": "managed",
   "properties": {
     "bridgeId": "string?",
@@ -68,7 +68,7 @@ export interface ImintTransactionsTable {
 
 export const attestationTable = {
   "name": "XXXX-XXXX-XXXX-XXXX-attestationTable",
-  "db": "postgres",
+  "db": "mongodb",
   "type": "managed",
   "properties": {
     "bridgeId": "string?",
@@ -88,7 +88,7 @@ export interface IattestationTable {
 
 export const DomainsTable = {
   "name": "XXXX-XXXX-XXXX-XXXX-DomainsTable",
-  "db": "postgres",
+  "db": "mongodb",
   "type": "managed",
   "properties": {
     "domainName": "string?",
@@ -108,7 +108,7 @@ export interface IDomainsTable {
 
 export const FeeInfo = {
   "name": "XXXX-XXXX-XXXX-XXXX-FeeInfo",
-  "db": "postgres",
+  "db": "mongodb",
   "type": "managed",
   "properties": {
     "chainId": "string?",
@@ -124,7 +124,7 @@ export interface IFeeInfo {
 
 export const cctpDayDataDB = {
   "name": "XXXX-XXXX-XXXX-XXXX-cctpDayDataDB",
-  "db": "postgres",
+  "db": "mongodb",
   "type": "managed",
   "properties": {
     "statId": "string?",
@@ -150,7 +150,7 @@ export interface IcctpDayDataDB {
 
 export const cctpWeekDataDB = {
   "name": "XXXX-XXXX-XXXX-XXXX-cctpWeekDataDB",
-  "db": "postgres",
+  "db": "mongodb",
   "type": "managed",
   "properties": {
     "statId": "string?",
@@ -176,7 +176,7 @@ export interface IcctpWeekDataDB {
 
 export const cctpMonthDataDB = {
   "name": "XXXX-XXXX-XXXX-XXXX-cctpMonthDataDB",
-  "db": "postgres",
+  "db": "mongodb",
   "type": "managed",
   "properties": {
     "statId": "string?",
@@ -202,7 +202,7 @@ export interface IcctpMonthDataDB {
 
 export const cctpYearDataDB = {
   "name": "XXXX-XXXX-XXXX-XXXX-cctpYearDataDB",
-  "db": "postgres",
+  "db": "mongodb",
   "type": "managed",
   "properties": {
     "statId": "string?",
@@ -228,7 +228,7 @@ export interface IcctpYearDataDB {
 
 export const cctpAllTimeDB = {
   "name": "XXXX-XXXX-XXXX-XXXX-cctpAllTimeDB",
-  "db": "postgres",
+  "db": "mongodb",
   "type": "managed",
   "properties": {
     "statId": "string?",

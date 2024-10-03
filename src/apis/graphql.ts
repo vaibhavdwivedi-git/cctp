@@ -23,7 +23,7 @@ export class burnTransactionsTableResolver {
           @Arg("page", () => Int, { nullable: true }) page?: number): Promise<GburnTransactionsTable[]> {
     console.log("Executing getburnTransactionsTables query");
     try {
-      const client = API.PostgresClient(bind);
+      const client = API.MongoClient(bind);
       const burntransactionstableDB = await client.db(burnTransactionsTable);
       const res = await burntransactionstableDB.find({});
       return res as GburnTransactionsTable[];
@@ -46,7 +46,7 @@ export class mintTransactionsTableResolver {
           @Arg("page", () => Int, { nullable: true }) page?: number): Promise<GmintTransactionsTable[]> {
     console.log("Executing getmintTransactionsTables query");
     try {
-      const client = API.PostgresClient(bind);
+      const client = API.MongoClient(bind);
       const minttransactionstableDB = await client.db(mintTransactionsTable);
       const res = await minttransactionstableDB.find({});
       return res as GmintTransactionsTable[];
@@ -69,7 +69,7 @@ export class attestationTableResolver {
           @Arg("page", () => Int, { nullable: true }) page?: number): Promise<GattestationTable[]> {
     console.log("Executing getattestationTables query");
     try {
-      const client = API.PostgresClient(bind);
+      const client = API.MongoClient(bind);
       const attestationtableDB = await client.db(attestationTable);
       const res = await attestationtableDB.find({});
       return res as GattestationTable[];
@@ -92,7 +92,7 @@ export class DomainsTableResolver {
           @Arg("page", () => Int, { nullable: true }) page?: number): Promise<GDomainsTable[]> {
     console.log("Executing getDomainsTables query");
     try {
-      const client = API.PostgresClient(bind);
+      const client = API.MongoClient(bind);
       const domainstableDB = await client.db(DomainsTable);
       const res = await domainstableDB.find({});
       return res as GDomainsTable[];
@@ -115,7 +115,7 @@ export class FeeInfoResolver {
           @Arg("page", () => Int, { nullable: true }) page?: number): Promise<GFeeInfo[]> {
     console.log("Executing getFeeInfos query");
     try {
-      const client = API.PostgresClient(bind);
+      const client = API.MongoClient(bind);
       const feeinfoDB = await client.db(FeeInfo);
       const res = await feeinfoDB.find({});
       return res as GFeeInfo[];
@@ -138,7 +138,7 @@ export class cctpDayDataDBResolver {
           @Arg("page", () => Int, { nullable: true }) page?: number): Promise<GcctpDayDataDB[]> {
     console.log("Executing getcctpDayDataDBs query");
     try {
-      const client = API.PostgresClient(bind);
+      const client = API.MongoClient(bind);
       const cctpdaydatadbDB = await client.db(cctpDayDataDB);
       const res = await cctpdaydatadbDB.find({});
       return res as GcctpDayDataDB[];
@@ -161,7 +161,7 @@ export class cctpWeekDataDBResolver {
           @Arg("page", () => Int, { nullable: true }) page?: number): Promise<GcctpWeekDataDB[]> {
     console.log("Executing getcctpWeekDataDBs query");
     try {
-      const client = API.PostgresClient(bind);
+      const client = API.MongoClient(bind);
       const cctpweekdatadbDB = await client.db(cctpWeekDataDB);
       const res = await cctpweekdatadbDB.find({});
       return res as GcctpWeekDataDB[];
@@ -184,7 +184,7 @@ export class cctpMonthDataDBResolver {
           @Arg("page", () => Int, { nullable: true }) page?: number): Promise<GcctpMonthDataDB[]> {
     console.log("Executing getcctpMonthDataDBs query");
     try {
-      const client = API.PostgresClient(bind);
+      const client = API.MongoClient(bind);
       const cctpmonthdatadbDB = await client.db(cctpMonthDataDB);
       const res = await cctpmonthdatadbDB.find({});
       return res as GcctpMonthDataDB[];
@@ -207,7 +207,7 @@ export class cctpYearDataDBResolver {
           @Arg("page", () => Int, { nullable: true }) page?: number): Promise<GcctpYearDataDB[]> {
     console.log("Executing getcctpYearDataDBs query");
     try {
-      const client = API.PostgresClient(bind);
+      const client = API.MongoClient(bind);
       const cctpyeardatadbDB = await client.db(cctpYearDataDB);
       const res = await cctpyeardatadbDB.find({});
       return res as GcctpYearDataDB[];
@@ -230,7 +230,7 @@ export class cctpAllTimeDBResolver {
           @Arg("page", () => Int, { nullable: true }) page?: number): Promise<GcctpAllTimeDB[]> {
     console.log("Executing getcctpAllTimeDBs query");
     try {
-      const client = API.PostgresClient(bind);
+      const client = API.MongoClient(bind);
       const cctpalltimedbDB = await client.db(cctpAllTimeDB);
       const res = await cctpalltimedbDB.find({});
       return res as GcctpAllTimeDB[];

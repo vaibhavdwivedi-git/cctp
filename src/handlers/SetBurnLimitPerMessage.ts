@@ -16,7 +16,7 @@ export const SetBurnLimitPerMessageHandler = async (
   bind: any,
   secrets: ISecrets
 ) => {
-  const client = Instance.PostgresClient(bind);
+  const client = Instance.MongoClient(bind);
 
   const { event, transaction, block, log } = context;
   const { token, burnLimitPerMessage, nonce } = event;

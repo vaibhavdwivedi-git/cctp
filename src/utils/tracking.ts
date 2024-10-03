@@ -32,7 +32,7 @@ export class Stats {
     this.chainId = chainId;
     this.date = new Date(Number(timestamp) * 1000);
 
-    const client = Instance.PostgresClient(bind);
+    const client = Instance.MongoClient(bind);
     this.feeDB = client.db(FeeInfo);
     this.cctpAllTimeDB = client.db(cctpAllTimeDB);
     this.cctpDayDataDB = client.db(cctpDayDataDB);
