@@ -1,0 +1,48 @@
+Version: 2.0.0
+Type: instance
+Metadata:
+  name: Project Apollo
+  description: A top-secret research project to the moon
+Auth:
+  userId: process.env.USER_ID
+  projectId: process.env.PROJECT_ID
+  accessKey: process.env.ACCESS_KEY
+  secretKey: process.env.SECRET_KEY
+Path:
+  schema: ./studio.schema.ts
+  docker: ./docker-compose.yml
+Environment:
+  testing:
+    startBlock: 20813569
+    network: Polygon
+    execution: parallel
+    rpc: https://eth.llamarpc.com
+    range: 2
+  deployment:
+    startBlock: latest
+    network: Polygon
+    execution: parallel
+Resources:
+  - name: tokenmessenger
+    abi: src/abis/tokenmessenger.json
+    type: contract/event
+    address: "0x9daF8c91AEFAE50b9c0E69629D3F6Ca40cA3B3FE"
+    triggers:
+      - event: >-
+          DepositForBurn(uint64 indexed,address indexed,uint256,address
+          indexed,bytes32,uint32,bytes32,bytes32)
+        handler: src/handlers/DepositForBurn.DepositForBurnHandler
+  - name: tokenMinter
+    abi: src/abis/tokenMinter.json
+    type: contract/event
+    address: "0x10f7835F827D6Cf035115E10c50A853d7FB2D2EC"
+    triggers:
+      - event: SetBurnLimitPerMessage(address indexed,uint256)
+        handler: src/handlers/SetBurnLimitPerMessage.SetBurnLimitPerMessageHandler
+  - name: messageTransmitter
+    abi: src/abis/messageTransmitter.json
+    type: contract/event
+    address: "0xF3be9355363857F3e001be68856A2f96b4C39Ba9"
+    triggers:
+      - event: MessageReceived(address indexed,uint32,uint64 indexed,bytes32,bytes)
+        handler: src/handlers/MessageReceived.MessageReceivedHandler

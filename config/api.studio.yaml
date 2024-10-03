@@ -1,0 +1,93 @@
+Version: 2.0.0
+Type: api
+Metadata:
+  name: Project Apollo
+  description: A top-secret research project to the moon
+Auth:
+  userId: process.env.USER_ID
+  projectId: process.env.PROJECT_ID
+  accessKey: process.env.ACCESS_KEY
+  secretKey: process.env.SECRET_KEY
+Path:
+  schema: ./studio.schema.ts
+  docker: ./docker-compose.yml
+Environment:
+  testing:
+    startBlock: 20813569
+    network: Ethereum
+    execution: parallel
+    rpc: https://eth.llamarpc.com
+    range: 2
+  deployment:
+    startBlock: latest
+    network: Ethereum
+    execution: parallel
+Resources:
+  - name: burn
+    type: api/rest
+    slug: transactions-burn
+    handler: src/apis/transactions/burn.Handler
+  - name: mint
+    type: api/rest
+    slug: transactions-mint
+    handler: src/apis/transactions/mint.Handler
+  - name: recipient
+    type: api/rest
+    slug: transactions-address-recipient
+    handler: src/apis/transactions/recipient.Handler
+  - name: sender
+    type: api/rest
+    slug: transactions-address-sender
+    handler: src/apis/transactions/sender.Handler
+  - name: volume
+    type: api/rest
+    slug: transactions-volume
+    handler: src/apis/transactions/volume.Handler
+  - name: volumeIn
+    type: api/rest
+    slug: transactions-volume-in
+    handler: src/apis/transactions/volumeIn.Handler
+  - name: volumeOut
+    type: api/rest
+    slug: transactions-volume-out
+    handler: src/apis/transactions/volumeOut.Handler
+  - name: txHash
+    type: api/rest
+    slug: transactions-txHash
+    handler: src/apis/transactions/txHash.Handler
+
+  - name: domains
+    type: api/rest
+    slug: domains-list
+    handler: src/apis/domains.Handler
+
+  - name: daily
+    type: api/rest
+    slug: stats-daily
+    handler: src/apis/stats/daily.Handler
+  - name: weekly
+    type: api/rest
+    slug: stats-weekly
+    handler: src/apis/stats/weekly.Handler
+  - name: monthly
+    type: api/rest
+    slug: stats-monthly
+    handler: src/apis/stats/monthly.Handler
+  - name: yearly
+    type: api/rest
+    slug: stats-yearly
+    handler: src/apis/stats/yearly.Handler
+  - name: alltime
+    type: api/rest
+    slug: stats-alltime
+    handler: src/apis/stats/alltime.Handler
+  - name: topRecipient
+    type: api/rest
+    slug: stats-recipients
+    handler: src/apis/stats/recipients.Handler
+
+  - name: topSenders
+    type: api/rest
+    slug: stats-senders
+    handler: src/apis/stats/senders.Handler
+
